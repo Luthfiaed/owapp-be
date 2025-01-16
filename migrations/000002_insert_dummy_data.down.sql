@@ -1,0 +1,3 @@
+TRUNCATE TABLE reviews;
+TRUNCATE TABLE products;
+TRUNCATE TABLE users;

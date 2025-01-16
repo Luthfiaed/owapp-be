@@ -1,0 +1,31 @@
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(100) NOT NULL,
+    token VARCHAR(100),
+    token_expired_at BIGINT,
+    avatar VARCHAR(100),
+    UNIQUE (username),
+    UNIQUE (token)
+) ENGINE InnoDB;
+
+CREATE TABLE IF NOT EXISTS products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    price INT NOT NULL,
+    is_draft BOOLEAN NOT NULL,
+    image VARCHAR(255) NOT NULL
+) ENGINE InnoDB;
+
+CREATE TABLE IF NOT EXISTS reviews (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    review VARCHAR(255) NOT NULL,
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+) ENGINE InnoDB;
