@@ -1,4 +1,7 @@
-credit to let's go further by alex edwards
+# OWAPP BACKEND
 
-migrate -path=./migrations -database "mysql://root:root@tcp(localhost:3306)/owapp" drop
-pass minyong test1234
+![Go](https://img.shields.io/badge/Go-1.22-blue)
+
+A project to demonstrate some of OWASP Top 10 2021 vulnerabilities. The frontend repository can be found [here](https://github.com/Luthfiaed/owapp-fe). This application is live [here](https://owapp-fe.vercel.app/)
+
+To start this project locally, simply run `go run ./internal` from the project root.
