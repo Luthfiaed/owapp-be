@@ -39,9 +39,9 @@ func (m ProductModel) GetByName(name string) ([]*Product, error) {
 		REFER TO GetById function
 	*/
 	if name == "" {
-		query = "SELECT * FROM products"
+		query = "SELECT * FROM products WHERE is_draft = 0"
 	} else {
-		query = fmt.Sprintf("SELECT * FROM products WHERE name = '%s'", name)
+		query = fmt.Sprintf("SELECT * FROM products WHERE is_draft = 0 AND name = '%s'", name)
 	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
